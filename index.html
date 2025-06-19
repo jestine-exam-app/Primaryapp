@@ -63,8 +63,8 @@
         <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
             <div class="text-center mb-6">
                 <div class="logo-container mx-auto mb-4"></div>
-                <h1 class="text-2xl font-bold text-secondary">RAMA SDA JUNIOR SCHOOL</h1>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Exam Management System</p>
+                <h1 class="text-2xl font-bold text-secondary">RAMA SDA PRIMARY SCHOOL</h1>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Jestine Exam Management System</p>
                 <p class="text-xs text-gray-500 mt-2">P.O. BOX 45-50201, CHEPTAIS</p>
                 <p class="text-xs italic text-primary font-semibold">"IN GOD WE CAN"</p>
             </div>
@@ -165,7 +165,7 @@
                     { name: 'Term 3', midterm: 'Term 3 Midterm', endterm: 'Term 3 Endterm' }
                 ],
                 examTypes: ['Midterm', 'Endterm'],
-                grades: ['PP1', 'PP2', '1', '2','3', '4', '5' '6'],
+                grades: ['PP1', 'PP2', '1', '2','3', '4', '5', '6'],
                 subjects: [
                     { name: 'ENGLISH', code: 'ENG' },
                     { name: 'KISWAHILI', code: 'KIS' },
@@ -194,14 +194,14 @@
         let currentUser = null;
 
         // Enhanced Utility Functions
-        function generateAssessmentNumber() {
+        function enterAssessmentNumber(assessment no) {
             const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             const letter = letters[Math.floor(Math.random() * letters.length)];
             const numbers = Math.floor(Math.random() * 1000000000).toString().padStart(9, '0');
             return letter + numbers;
         }
 
-        function generateAdmissionNumber() {
+        function entreAdmissionNumber(admission no) {
             const existing = appData.students.map(s => parseInt(s.admissionNumber));
             const max = existing.length > 0 ? Math.max(...existing) : 0;
             return (max + 1).toString().padStart(4, '0');
@@ -261,7 +261,7 @@
             const role = document.getElementById('userRole').value;
 
             // Enhanced authentication
-            if (password === 'jestine' || (role === 'admin' && password === 'tekei')) {
+            if (password === '123456' || (role === 'admin' && password === 'admin123')) {
                 currentUser = { username, role, loginTime: new Date() };
                 document.getElementById('loginScreen').classList.add('hidden');
                 document.getElementById('mainDashboard').classList.remove('hidden');
@@ -271,7 +271,7 @@
                 initializeNavigation();
                 showDashboard();
             } else {
-                alert('❌ Invalid credentials!\n\nUse:\n• Password: jestine (all users)\n• Password: tekei (admin only)');
+                alert('❌ Invalid credentials!\n\nUse:\n• Password: 123456 (all users)\n• Password: admin123 (admin only)');
             }
         });
 
