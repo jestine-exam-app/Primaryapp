@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rama SDA Junior School - Exam Management System</title>
+    <title>Rama SDA Primary School - Jestine Exam Management System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -91,7 +91,7 @@
                 </button>
                 <div class="text-xs text-gray-500 text-center mt-4">
                     <p>Demo Credentials:</p>
-                    <p>Password: <strong>123456</strong> or <strong>admin123</strong> (for admin)</p>
+                    <p>Password: <strong>jestine</strong> or <strong>tekei</strong> (for admin)</p>
                 </div>
             </form>
         </div>
@@ -105,8 +105,8 @@
                 <div class="flex items-center space-x-4">
                     <div class="logo-container small-logo"></div>
                     <div>
-                        <h1 class="text-lg font-bold text-secondary">RAMA SDA JUNIOR SCHOOL</h1>
-                        <p class="text-xs text-gray-600 dark:text-gray-400">Exam Management System • "IN GOD WE CAN"</p>
+                        <h1 class="text-lg font-bold text-secondary">RAMA SDA PRIMARY SCHOOL</h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Jestine Exam Management System • "IN GOD WE CAN"</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -165,17 +165,23 @@
                     { name: 'Term 3', midterm: 'Term 3 Midterm', endterm: 'Term 3 Endterm' }
                 ],
                 examTypes: ['Midterm', 'Endterm'],
-                grades: ['7', '8', '9'],
+                grades: ['PP1', 'PP2', '1', '2','3', '4', '5' '6'],
                 subjects: [
                     { name: 'ENGLISH', code: 'ENG' },
                     { name: 'KISWAHILI', code: 'KIS' },
-                    { name: 'MATHEMATICS', code: 'MAT' },
-                    { name: 'INTEGRATED SCIENCE', code: 'ISC' },
+                    { name: 'MATHEMATICS', code: 'MATH' },
+                    { name: 'MATHEMATICAL ACTIVITIES', code: 'MATH ACTV' },
+                    { name: 'LANGUAGE ACTIVITIES', code: 'LANG ACTV' },
+                    { name: 'ENCIRONMENTAL EDUCATION', code: 'ENV EDU' },
+                    { name: 'PSYCHOMOTOR AND CREATIVE ACTIVITIES', code: 'PSY/CATV' },
+                    { name: 'CREATIVE ACTIVITIES', code: 'C/ACTV' },
+                    { name: 'SCIENCE AND TECHNOLOGY', code: 'SCIE-TECH' },
                     { name: 'AGRICULTURE AND NUTRITION', code: 'AGR' },
                     { name: 'SOCIAL STUDIES', code: 'SOC' },
-                    { name: 'PRE-TECHNICAL STUDIES', code: 'PTS' },
-                    { name: 'CHRISTIAN RELIGIOUS EDUCATION', code: 'CRE' },
-                    { name: 'CREATIVE ARTS AND SPORTS', code: 'CAS' }
+                    { name: 'ENVIRONMENTAL ACTIVITIES', code: 'PTS' },
+                    { name: 'RELIGIOUS EDUCATION', code: 'CRE' },
+                    { name: 'RELIGIOUS ACTIVITIES', code: 'CRE' },
+                    { name: 'CREATIVE ARTS', code: 'CAS' }
                 ],
                 termDates: {
                     term1: { opening: '', closing: '' },
@@ -255,7 +261,7 @@
             const role = document.getElementById('userRole').value;
 
             // Enhanced authentication
-            if (password === '123456' || (role === 'admin' && password === 'admin123')) {
+            if (password === 'jestine' || (role === 'admin' && password === 'tekei')) {
                 currentUser = { username, role, loginTime: new Date() };
                 document.getElementById('loginScreen').classList.add('hidden');
                 document.getElementById('mainDashboard').classList.remove('hidden');
@@ -265,7 +271,7 @@
                 initializeNavigation();
                 showDashboard();
             } else {
-                alert('❌ Invalid credentials!\n\nUse:\n• Password: 123456 (all users)\n• Password: admin123 (admin only)');
+                alert('❌ Invalid credentials!\n\nUse:\n• Password: jestine (all users)\n• Password: tekei (admin only)');
             }
         });
 
@@ -694,8 +700,8 @@
                 }
 
                 const student = {
-                    admissionNumber: generateAdmissionNumber(),
-                    assessmentNumber: generateAssessmentNumber(),
+                    admissionNumber,
+                    assessmentNumber,
                     name,
                     gender,
                     grade,
@@ -722,9 +728,9 @@
                 return;
             }
 
-            const newGrade = prompt('Enter new grade (7/8/9):', student.grade);
+            const newGrade = prompt('Enter new grade (PP1/PP2/1/2/3/4/5/6):', student.grade);
             if (!newGrade || !appData.settings.grades.includes(newGrade)) {
-                alert('Please enter a valid grade (7, 8, or 9)');
+                alert('Please enter a valid grade (PP1, PP2, 1, 2, 3, 4, 5, or 6)');
                 return;
             }
 
